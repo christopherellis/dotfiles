@@ -10,7 +10,7 @@ while IFS= read -r -d '' infile
 do
 	if file "$infile" | grep --quiet shell; then
 		{
-			shellcheck "$infile" && echo -e "\\e[32m[OK]: linted $infile\\e[0m"
+			shellcheck -x "$infile" && echo -e "\\e[32m[OK]: linted $infile\\e[0m"
 		} || {
 			# add to errors
 			ERRORS+=("$infile")
